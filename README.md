@@ -1,8 +1,28 @@
-# React + Vite
+# E-commerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A basic E-commerce application built with HTML, Chakra UI, JavaScript, and React.js. This app allows users to browse products, add items to a shopping cart, and proceed to checkout.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive design using Chakra UI
+- Product listing and detail pages
+- Shopping cart functionality
+- User-friendly navigation
+
+## Technologies Used
+
+- HTML
+- CSS (via Chakra UI)
+- JavaScript
+- React.js
+
+## Installation
+
+1. Clone the repository
+2. Navigate to the project directory
+3. Install dependencies
+4. Start the development server:
+
+## License
+
+This project is licensed under the MIT License.
