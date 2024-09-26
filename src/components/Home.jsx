@@ -31,18 +31,19 @@ export const Home = () => {
 			setData(res.data);
 		});
 	}, []);
-	const handleCartClick = (e) => {
+	const handleCartClick = (e,product) => {
 		e.stopPropagation();
 		if (!isLogged.flag) {
 			navigate("/login");
 		} else {
-			addToCart({ id, ...product });
+			addToCart({ id: product.id, ...product });
 		}
 	};
 
 	const handleProductClick = (id) => {
 		navigate(`/Product/${id}`);
 	};
+
 	return (
 		<Box>
 			<Grid templateColumns="repeat(3, 1fr)" gap={6}>
@@ -50,14 +51,9 @@ export const Home = () => {
 					return (
 						<Card maxW="sm" key={id} onClick={() => handleProductClick(id)}>
 							<CardBody>
-								<Image src={ele.image} alt={ele.title} borderRadius="lg" />
+								<Image src={ele.image} alt={ele.name} borderRadius="lg" />
 								<Stack mt="6" spacing="3">
-									<Heading size="md">{ele.title}</Heading>
-									{/* <Text>
-										This sofa is perfect for modern tropical spaces, baroque
-										inspired spaces, earthy toned spaces and for people who love
-										a chic design with a sprinkle of vintage design.
-									</Text> */}
+									<Heading size="md">{ele.name}</Heading>
 									<Text color="blue.600" fontSize="2xl">
 										{ele.price}
 									</Text>
@@ -65,17 +61,12 @@ export const Home = () => {
 							</CardBody>
 							<Divider />
 							<CardFooter>
-								{/* <ButtonGroup spacing="2"> */}
-								{/* <Button variant="solid" colorScheme="blue">
-										Buy now
-									</Button> */}
 								<Button
 									variant="ghost"
 									colorScheme="blue"
 									onClick={(event) => handleCartClick(event, { id, ...ele })}>
 									Add to cart
 								</Button>
-								{/* </ButtonGroup> */}
 							</CardFooter>
 						</Card>
 					);

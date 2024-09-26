@@ -6,9 +6,16 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
 	const [cart, setCart] = useState([]);
 
-	const addToCart = (product) => {
-		setCart((prev) => [...prev, product]);
+	const addToCart = (item) => {
+		setCart((prev) => {
+			const existingItem = prev.find((cartItem) => cartItem.id === item.id);
+			if (existingItem) {
+				return prev; // stops adding a duplicate
+			}
+			return [...prev, item];
+		});
 	};
+
 	const removeCart = (id) => {
 		setCart((prev) => {
 			const index = prev.findIndex((item) => item.id == id);

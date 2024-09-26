@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 export const Cart = () => {
 	const { cart, removeCart, clearCart } = useContext(CartContext);
+	// console.log(cart);
 
 	const handleRemove = (id) => {
 		removeCart(id);
@@ -20,8 +21,12 @@ export const Cart = () => {
 				<Text>Your cart is empty.</Text>
 			) : (
 				<Stack spacing={4}>
-					{cart.map((item) => (
-						<Box key={item.id} borderWidth="1px" borderRadius="lg" padding="4">
+					{cart.map((item, index) => (
+						<Box
+							key={`${item.id}-${index}`}
+							borderWidth="1px"
+							borderRadius="lg"
+							padding="4">
 							<Image
 								src={item.image}
 								borderRadius="md"
@@ -32,9 +37,8 @@ export const Cart = () => {
 							/>
 							<Stack spacing="4" align="center" justify="center">
 								<Heading as="h3" size="xl" color="teal.600" textAlign="center">
-									{item.title}
+									{item.name}
 								</Heading>
-
 								<Text
 									fontWeight="bold"
 									fontSize="2xl"

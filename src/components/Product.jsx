@@ -33,12 +33,21 @@ export const Product = () => {
 			});
 	}, [id]);
 
+	// const handleCart = (e) => {
+	// 	e.stopPropagation();
+	// 	if (!isLogged.flag) {
+	// 		navigate("/login");
+	// 	} else {
+	// 		addToCart({ id, ...product });
+	// 	}
+	// };
 	const handleCart = (e) => {
 		e.stopPropagation();
 		if (!isLogged.flag) {
 			navigate("/login");
 		} else {
-			addToCart({ id, ...product });
+			console.log("Adding to cart:", { id: product.id, ...product }); // Log the item being added
+			addToCart({ id: product.id, ...product });
 		}
 	};
 
@@ -65,7 +74,7 @@ export const Product = () => {
 					/>
 					<Stack spacing="4" align="center" justify="center">
 						<Heading as="h3" size="xl" color="teal.600" textAlign="center">
-							{product.title}
+							{product.name}
 						</Heading>
 						<Text fontSize="lg" color="gray.700" textAlign="center">
 							{product.description}
